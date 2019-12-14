@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     // difficulty events and variables
     public UnityEvent onStartGame, onDifficultyChange, onStopGame;
 
-    private GameDifficulty difficulty = GameDifficulty.VerySlow;
+    private GameDifficulty difficulty = GameDifficulty.Stop;
     public GameDifficulty Difficulty
     {
         get => difficulty;
@@ -60,19 +60,19 @@ public class GameManager : MonoBehaviour
         switch (Difficulty)
         {
             case GameDifficulty.VerySlow:
-                GameSpeed = 0.2f;
+                GameSpeed = 0.5f;
                 break;
 
             case GameDifficulty.Slow:
-                GameSpeed = 0.4f;
+                GameSpeed = 0.65f;
                 break;
 
             case GameDifficulty.Normal:
-                GameSpeed = 0.6f;
+                GameSpeed = 0.75f;
                 break;
 
             case GameDifficulty.Fast:
-                GameSpeed = 0.8f;
+                GameSpeed = 0.9f;
                 break;
 
             case GameDifficulty.VeryFast:
@@ -110,4 +110,5 @@ public class GameManager : MonoBehaviour
     {
         Difficulty = (GameDifficulty)(((int) Difficulty + 1) % (int)GameDifficulty.Stop);
     }
+
 }

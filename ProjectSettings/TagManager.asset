@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - CollideWithPlayer
   - 
   - 
   - 
@@ -43,4 +43,10 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 4146448143
+    locked: 0
+  - name: Foreground
+    uniqueID: 2061252019
+    locked: 0
+  - name: Player
+    uniqueID: 2612887387
     locked: 0

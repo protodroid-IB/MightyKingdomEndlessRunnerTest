@@ -99,8 +99,11 @@ public class RepeatingBackground : MonoBehaviour
                 speed = Mathf.Lerp(initialSpeed, finalSpeed, speedLerpValue);
 
                 if (speedLerpValue >= 1)
+                {
+                    scrollingSub.Dispose();
                     speedChangeSub.Dispose();
+                }
+                    
             });
-
     }
 }
