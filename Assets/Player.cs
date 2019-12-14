@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
     private InputManager inputManager;
     private Rigidbody2D rb;
 
-
+    private Vector3 startPos;
 
     private bool isGrounded = true;
     private bool jumpPressed = false;
@@ -63,6 +64,10 @@ public class Player : MonoBehaviour
 
 
 
+    // events
+    [Space(10)]
+    public UnityEvent onDie;
+
 
 
 
@@ -79,8 +84,19 @@ public class Player : MonoBehaviour
             animator.SetBool("Running", true);
         });
 
+        GameManager.instance.onStopGame.AddListener(() =>
+        {
+            animator.SetBool("Jumping", false);
+            animator.SetBool("Falling", false);
+            animator.SetBool("Running", false);
+        });
+
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+
+        startPos = transform.position;
+
+        GameManager.instance.onResetGame.AddListener(Reset);
 
     }
 
@@ -137,7 +153,6 @@ public class Player : MonoBehaviour
         {
             velocity += jumpAcceleration * Time.deltaTime;
         }
-
         // this occurs when the player is falling or running
         else
         {
@@ -175,6 +190,23 @@ public class Player : MonoBehaviour
             if(!jumpPressed)
                 velocity = 0;
         }
+    }
+
+    public void Die()
+    {
+        GameManager.instance.StopGame();
+        rb.velocity = Vector2.zero;
+        Debug.Log("Player Die!");
+        onDie?.Invoke();
+    }
+
+    public void Reset()
+    {
+        animator.SetBool("Jumping", false);
+        animator.SetBool("Falling", false);
+        animator.SetBool("Running", false);
+
+        transform.position = startPos;
     }
 
     private void OnDrawGizmos()

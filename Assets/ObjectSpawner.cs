@@ -41,20 +41,23 @@ public class ObjectSpawner : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        spawned = transform.GetComponentsInChildren<ObjectScroller>().ToList();
         lifeSpanCollider = GetComponent<Collider2D>();
         spawnXPosition = lifeSpanCollider.bounds.max.x;
+
+        Initialise();
+    }
+
+
+
+
+
+
+
+    public void Initialise()
+    {
+        spawned = transform.GetComponentsInChildren<ObjectScroller>().ToList();
         lastYSpawnPosition = Random.Range(lifeSpanCollider.bounds.min.y, lifeSpanCollider.bounds.max.y);;
 
         foreach (ObjectScroller scroller in spawned)

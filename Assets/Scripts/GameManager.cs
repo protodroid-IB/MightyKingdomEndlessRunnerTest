@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     // difficulty events and variables
-    public UnityEvent onStartGame, onDifficultyChange, onStopGame;
+    public UnityEvent onStartGame, onDifficultyChange, onStopGame, onResetGame;
 
     private GameDifficulty difficulty = GameDifficulty.Stop;
     public GameDifficulty Difficulty
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 
     // starts the game
     [ContextMenu("Start Game")]
-    private void StartGame()
+    public void StartGame()
     {
         Difficulty = GameDifficulty.VerySlow;
 
@@ -98,17 +98,43 @@ public class GameManager : MonoBehaviour
     }
 
     [ContextMenu("Stop Game")]
-    private void StopGame()
+    public void StopGame()
     {
         Difficulty = GameDifficulty.Stop;
 
         onStopGame?.Invoke();
     }
 
+
+    [ContextMenu("Reset Game")]
+    public void ResetGame()
+    {
+        onResetGame?.Invoke();
+    }
+
     [ContextMenu("To Next Difficulty")]
     public void ToNextDifficulty()
     {
         Difficulty = (GameDifficulty)(((int) Difficulty + 1) % (int)GameDifficulty.Stop);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StopGame();
+            ResetGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            StartGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ToNextDifficulty();
+        }
     }
 
 }
