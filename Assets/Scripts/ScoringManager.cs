@@ -26,8 +26,8 @@ public class ScoringManager : MonoBehaviour
     #endregion
 
     // scores
-    private float topScore = 0f;
-    private float currentScore = 0f;
+    public FloatReactiveProperty topScore = new FloatReactiveProperty(0f);
+    public FloatReactiveProperty currentScore = new FloatReactiveProperty(0f);
 
     // distance and coins
     public IntReactiveProperty distanceRun = new IntReactiveProperty(0);
@@ -50,7 +50,7 @@ public class ScoringManager : MonoBehaviour
     void Start()
     {
         // grab the top score data
-        topScore = topScoreData.topScore;
+        topScore.Value = topScoreData.topScore;
 
         // apply subscritions
         GameManager.instance.onStartGame.AddListener(StartTracking);
@@ -62,7 +62,7 @@ public class ScoringManager : MonoBehaviour
     // resets all the scoring variables
     private void ResetScore()
     {
-        currentScore = 0f;
+        currentScore.Value = 0f;
         distanceRun.Value = 0;
         totalCoins.Value = 0;
     }
@@ -89,10 +89,10 @@ public class ScoringManager : MonoBehaviour
 
         CalculateScore(distanceRun.Value, totalCoins.Value);
 
-        if (currentScore > topScore)
+        if (currentScore.Value > topScore.Value)
         {
-            topScore = currentScore;
-            topScoreData.topScore = topScore;
+            topScore.Value = currentScore.Value;
+            topScoreData.topScore = topScore.Value;
         }
     }
 
@@ -113,7 +113,7 @@ public class ScoringManager : MonoBehaviour
     // calculates the score from the distance and the coins
     private void CalculateScore(int inDistance, int inCoins)
     {
-        currentScore = inDistance + inCoins;
+        currentScore.Value = inDistance + inCoins;
     }
 
 

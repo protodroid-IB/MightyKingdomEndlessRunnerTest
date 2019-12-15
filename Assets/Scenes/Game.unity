@@ -1145,6 +1145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44ce967c07af03740afc6ec60b0da892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topScore: {fileID: 1630882470}
+  lastScore: {fileID: 2139475275}
 --- !u!1001 &348256925
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1152,6 +1154,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 818870024}
     m_Modifications:
+    - target: {fileID: 685127003802517779, guid: ae4f52a9205572f4fabbcaf510446660,
+        type: 3}
+      propertyPath: m_Name
+      value: Platform1
+      objectReference: {fileID: 0}
     - target: {fileID: -6277140308889310008, guid: ae4f52a9205572f4fabbcaf510446660,
         type: 3}
       propertyPath: obstacleTypes.Array.size
@@ -1182,11 +1189,6 @@ PrefabInstance:
         type: 3}
       propertyPath: itemTypes.Array.data[1].chanceToSpawn
       value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 685127003802517779, guid: ae4f52a9205572f4fabbcaf510446660,
-        type: 3}
-      propertyPath: m_Name
-      value: Platform1
       objectReference: {fileID: 0}
     - target: {fileID: 5682599044174722850, guid: ae4f52a9205572f4fabbcaf510446660,
         type: 3}
@@ -2157,15 +2159,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 818870024}
     m_Modifications:
-    - target: {fileID: -6277140308889310008, guid: ae4f52a9205572f4fabbcaf510446660,
-        type: 3}
-      propertyPath: canSpawnObject
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 685127003802517779, guid: ae4f52a9205572f4fabbcaf510446660,
         type: 3}
       propertyPath: m_Name
       value: Platform1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -6277140308889310008, guid: ae4f52a9205572f4fabbcaf510446660,
+        type: 3}
+      propertyPath: canSpawnObject
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5682599044174722850, guid: ae4f52a9205572f4fabbcaf510446660,
         type: 3}
@@ -5837,6 +5839,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194dbec48b8e28346b2a0ed0101bd5c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topScore:
+    value: 0
+  currentScore:
+    value: 0
   distanceRun:
     value: 0
   totalCoins:
