@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4584093395374547192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7980833547250526330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184e9cffe3484294ca6d3724c3ff3f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 9198527693902679738}
+  activeTime: 20
+  animator: {fileID: 0}
+  onPickUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8668321434088604779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +28,12 @@ PrefabInstance:
     - target: {fileID: 1625110867712601105, guid: 40b98854a1b797d4085c988f8e2b7de9,
         type: 3}
       propertyPath: m_Name
-      value: PickUp
+      value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1625110867712601105, guid: 40b98854a1b797d4085c988f8e2b7de9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 5993238598629000715, guid: 40b98854a1b797d4085c988f8e2b7de9,
         type: 3}
@@ -67,5 +90,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6342359380595061011, guid: 40b98854a1b797d4085c988f8e2b7de9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Coin
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8602854534426356519, guid: 40b98854a1b797d4085c988f8e2b7de9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 40b98854a1b797d4085c988f8e2b7de9, type: 3}
+--- !u!1 &7980833547250526330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1625110867712601105, guid: 40b98854a1b797d4085c988f8e2b7de9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8668321434088604779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &9198527693902679738 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 570739277225790161, guid: 40b98854a1b797d4085c988f8e2b7de9,
+    type: 3}
+  m_PrefabInstance: {fileID: 8668321434088604779}
+  m_PrefabAsset: {fileID: 0}

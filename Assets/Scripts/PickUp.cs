@@ -1,35 +1,59 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public enum PickUpDefinition
-{
-    Coin,
-    Count
-}
+using UnityEngine.Events;
+using UniRx;
+using UniRx.Triggers;
 
 public class PickUp : InteractableObject
 {
     [SerializeField]
-    private PickUpDefinition pickUpType;
+    protected float activeTime = 20f;
+    public float ActiveTime { get => activeTime; protected set => activeTime = value; }
 
-    private void OnTriggerEnter2D(Collider2D collider)
+    [SerializeField]
+    private Animator animator;
+
+    private IDisposable endAnimSub;
+
+    [Space(10)]
+    public UnityEvent onPickUp;
+
+    protected override void OnTriggerEnter2D(Collider2D collider)
     {
+        base.OnTriggerEnter2D(collider);
+
         if (collider.tag == "Player")
         {
-            switch (pickUpType)
-            {
-                case PickUpDefinition.Coin:
-                    ScoringManager.instance.IncrementCoins();
-                    Kill();
-                    break;
-            }
-            
+               OnPickUp();
         }
     }
 
-    private void Kill()
+    protected virtual void OnPickUp()
     {
+        if(animator)
+        {
+            if(animator.GetCurrentAnimatorStateInfo(0).IsName("Bob"))
+            {
+                animator.SetBool("Collected", true);
+                endAnimSub = this.UpdateAsObservable()
+                    .Subscribe(_ =>
+                    {
+                        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Collected") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+                        {
+                            Kill();
+                        }
+                    });
+            }
+        }
+
+        onPickUp?.Invoke();
+    }
+
+    protected virtual void Kill()
+    {
+        endAnimSub?.Dispose();
         Destroy(gameObject);
     }
 

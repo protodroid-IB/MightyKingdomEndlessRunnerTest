@@ -112,7 +112,6 @@ public class Player : MonoBehaviour
             jumpStartTime = Time.time;
             animator.SetBool("Falling", false);
             animator.SetBool("Jumping", true);
-            Debug.Log("Start Jump");
         }
     }
 
@@ -120,7 +119,6 @@ public class Player : MonoBehaviour
     private void StopJump()
     {
         jumpPressed = false;
-        Debug.Log("Stop Jump");
     }
 
 
@@ -196,7 +194,6 @@ public class Player : MonoBehaviour
     {
         GameManager.instance.StopGame();
         rb.velocity = Vector2.zero;
-        Debug.Log("Player Die!");
         onDie?.Invoke();
         Invoke("GoToMenu", 1f);
     }

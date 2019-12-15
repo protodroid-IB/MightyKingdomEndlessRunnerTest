@@ -38,4 +38,9 @@ public class Obstacle : InteractableObject
     //        Destroy(gameObject);
     //    }
     //}
+
+    public void Kill()
+    {
+        Destroy(gameObject);
+    }
 }

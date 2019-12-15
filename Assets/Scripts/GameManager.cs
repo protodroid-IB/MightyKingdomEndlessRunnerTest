@@ -14,6 +14,9 @@ public enum GameDifficulty
     Normal,
     Fast,
     VeryFast,
+    VeryVeryFast,
+    ExtremleyFast,
+    InsanelyFast,
     Stop
 }
 
@@ -100,6 +103,18 @@ public class GameManager : MonoBehaviour
 
             case GameDifficulty.VeryFast:
                 GameSpeed = 1.0f;
+                break;
+
+            case GameDifficulty.VeryVeryFast:
+                GameSpeed = 1.0f;
+                break;
+
+            case GameDifficulty.ExtremleyFast:
+                GameSpeed = 1.1f;
+                break;
+
+            case GameDifficulty.InsanelyFast:
+                GameSpeed = 1.2f;
                 break;
 
             case GameDifficulty.Stop:

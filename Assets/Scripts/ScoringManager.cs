@@ -55,16 +55,18 @@ public class ScoringManager : MonoBehaviour
         // apply subscritions
         GameManager.instance.onStartGame.AddListener(StartTracking);
         GameManager.instance.onStopGame.AddListener(StopTracking);
-        GameManager.instance.onResetGame.AddListener(ResetScore);
+
+        CameraController camController = FindObjectOfType<CameraController>();
+        camController.onExitMenu.AddListener(ResetScore);
     }
 
 
     // resets all the scoring variables
     private void ResetScore()
     {
-        currentScore.Value = 0f;
-        distanceRun.Value = 0;
-        totalCoins.Value = 0;
+            currentScore.Value = 0f;
+            distanceRun.Value = 0;
+            totalCoins.Value = 0;
     }
 
 
