@@ -20,6 +20,17 @@ public class PickUp : InteractableObject
     [Space(10)]
     public UnityEvent onPickUp;
 
+    private float deathTime = 3f;
+
+    private Collider2D collider;
+
+    protected virtual void Awake()
+    {
+        collider = GetComponentInChildren<Collider2D>();
+    }
+
+
+
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         base.OnTriggerEnter2D(collider);
@@ -54,7 +65,11 @@ public class PickUp : InteractableObject
     protected virtual void Kill()
     {
         endAnimSub?.Dispose();
-        Destroy(gameObject);
+
+        if(collider)
+            collider.enabled = false;
+
+        Destroy(gameObject, deathTime);
     }
 
 }

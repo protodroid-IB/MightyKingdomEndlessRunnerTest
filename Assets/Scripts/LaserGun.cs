@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LaserGun : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class LaserGun : MonoBehaviour
 
     [SerializeField]
     private Transform bulletSpawn;
+
+    public UnityEvent onShoot;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,6 +23,7 @@ public class LaserGun : MonoBehaviour
             Debug.Log("Obstacle In Range!");
             LaserBullet bullet = Instantiate(laserBullet, bulletSpawn.position, Quaternion.identity, bulletSpawn).GetComponent<LaserBullet>();
             bullet.Target = obstacle;
+            onShoot?.Invoke();
         }
     }
 

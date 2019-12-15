@@ -66,10 +66,11 @@ public class Player : MonoBehaviour
 
     // events
     [Space(10)]
-    public UnityEvent onDie;
+    public UnityEvent onDie, onJump, onLand;
 
 
-
+    [SerializeField]
+    private SpriteRenderer sr;
 
     void Start()
     {
@@ -98,6 +99,13 @@ public class Player : MonoBehaviour
 
         GameManager.instance.onResetGame.AddListener(Reset);
 
+        CameraController camController = FindObjectOfType<CameraController>();
+
+        camController.onExitMenu.AddListener(() =>
+        {
+            sr.enabled = true;
+        });
+
     }
 
 
@@ -112,6 +120,7 @@ public class Player : MonoBehaviour
             jumpStartTime = Time.time;
             animator.SetBool("Falling", false);
             animator.SetBool("Jumping", true);
+            onJump?.Invoke();
         }
     }
 
@@ -185,8 +194,15 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if(!jumpPressed)
-                velocity = 0;
+            if (!jumpPressed)
+            {
+                if(velocity != 0)
+                {
+                    velocity = 0;
+                    onLand?.Invoke();
+                }
+            }
+               
         }
     }
 

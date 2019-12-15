@@ -168,23 +168,23 @@ public class GameManager : MonoBehaviour
 
 
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StopGame();
-            ResetGame();
-        }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.R))
+    //    {
+    //        StopGame();
+    //        ResetGame();
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartGame();
-        }
+    //    if (Input.GetKeyDown(KeyCode.S))
+    //    {
+    //        StartGame();
+    //    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ToNextDifficulty();
-        }
-    }
+    //    if (Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        ToNextDifficulty();
+    //    }
+    //}
 
 }

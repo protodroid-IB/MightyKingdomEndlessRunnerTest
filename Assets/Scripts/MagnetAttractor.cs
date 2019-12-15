@@ -10,12 +10,26 @@ public class MagnetAttractor : MonoBehaviour
 
     private List<Coin> coinsToAttract = new List<Coin>();
 
+    [SerializeField]
+    private AudioSource source;
+    
+
     private void Start()
     {
         GameManager.instance.onStopGame.AddListener(() =>
         {
             coinsToAttract.Clear();
         });
+    }
+
+    private void OnEnable()
+    {
+        source.Play();
+    }
+
+    private void OnDisable()
+    {
+        source.Stop();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

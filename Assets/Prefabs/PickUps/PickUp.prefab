@@ -67,10 +67,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  addVelocity:
+    m_PersistentCalls:
+      m_Calls: []
+  toAddVelocity: {x: 0, y: 0}
+  overrideVelocity: 0
+  activeTime: 20
+  animator: {fileID: 0}
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
-  animator: {fileID: 0}
 --- !u!1 &4922659258507311162
 GameObject:
   m_ObjectHideFlags: 0

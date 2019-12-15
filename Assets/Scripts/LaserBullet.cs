@@ -1,19 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LaserBullet : MonoBehaviour
 {
     [SerializeField]
     private float speed = 5f;
 
-    private float lifetime = 10f;
+    private float lifetime = 8f;
 
     private Obstacle target = null;
     public Obstacle Target { get => target; set => target = value; }
 
+    private Collider2D collider;
+    private SpriteRenderer sr;
+
+    private float deathTime = 2f;
+
+    public UnityEvent onCollide;
+
     private void Start()
     {
+        collider = GetComponent<Collider2D>();
+        sr = GetComponent<SpriteRenderer>();
         Invoke("Kill", lifetime);
     }
 
@@ -37,11 +47,19 @@ public class LaserBullet : MonoBehaviour
         {
             Target.Kill();
             Kill();
+
+            onCollide?.Invoke();
         }
     }
 
     private void Kill()
     {
-        Destroy(gameObject);
+        if(collider)
+            collider.enabled = false;
+
+        if (sr)
+            sr.enabled = false;
+
+        Destroy(gameObject, deathTime);
     }
 }
