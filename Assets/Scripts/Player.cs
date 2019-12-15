@@ -198,6 +198,12 @@ public class Player : MonoBehaviour
         rb.velocity = Vector2.zero;
         Debug.Log("Player Die!");
         onDie?.Invoke();
+        Invoke("GoToMenu", 1f);
+    }
+
+    private void GoToMenu()
+    {
+        GameManager.instance.State.Value = GameState.Menu;
     }
 
     public void Reset()

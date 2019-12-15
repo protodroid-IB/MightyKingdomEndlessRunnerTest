@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 41aa957897afd0e4090853ec2e631479
+guid: fa6281fac74724fc1bc4e97d7dcfecaf
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: 21300000
-    second: DazzaRun_0
+    second: DollaryDoo_0
   - first:
       213: 21300002
-    second: DazzaRun_1
+    second: DollaryDoo_1
   - first:
       213: 21300004
-    second: DazzaRun_2
+    second: DollaryDoo_2
   - first:
       213: 21300006
-    second: DazzaRun_3
+    second: DollaryDoo_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,84 +122,84 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DazzaRun_0
+      name: DollaryDoo_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 8
+        y: 8
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db658586c1e719b4780e80fc465f0a9d
+      spriteID: e2ac43408f18849ac99d2852e2e36bb5
       internalID: 21300000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DazzaRun_1
+      name: DollaryDoo_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
-        width: 32
-        height: 32
+        y: 8
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08849359f581cc14c99668ba9ce84df5
+      spriteID: 4a43f8fe57255402f81211ec0548dc44
       internalID: 21300002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DazzaRun_2
+      name: DollaryDoo_2
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
+        x: 56
+        y: 8
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 448f3242204218243a812b30f14f8b31
+      spriteID: ee253de48f9604f2bb4c426142c84752
       internalID: 21300004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DazzaRun_3
+      name: DollaryDoo_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
+        x: 80
+        y: 8
+        width: 8
+        height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e297b7d07ba353b4cb5aa79326f096f5
+      spriteID: 9fd7b580d88244ae3ab9f977699a881f
       internalID: 21300006
       vertices: []
       indices: 
@@ -208,7 +208,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1d0e84baf4c7423419e4dbbcd5ca6b11
+    spriteID: 79ac7ece3514e444e9d60abd01cdfd80
     internalID: 0
     vertices: []
     indices: 

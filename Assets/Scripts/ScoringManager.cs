@@ -31,7 +31,7 @@ public class ScoringManager : MonoBehaviour
 
     // distance and coins
     public IntReactiveProperty distanceRun = new IntReactiveProperty(0);
-    private float totalCoins = 0f;
+    public IntReactiveProperty totalCoins = new IntReactiveProperty(0);
 
     // disposables
     private IDisposable distanceTracker;
@@ -44,8 +44,6 @@ public class ScoringManager : MonoBehaviour
     // the scriptable object asset to store the top score data in
     [SerializeField]
     private TopScore topScoreData;
-
-
 
 
 
@@ -66,7 +64,7 @@ public class ScoringManager : MonoBehaviour
     {
         currentScore = 0f;
         distanceRun.Value = 0;
-        totalCoins = 0f;
+        totalCoins.Value = 0;
     }
 
 
@@ -89,7 +87,7 @@ public class ScoringManager : MonoBehaviour
     {
         distanceTracker?.Dispose();
 
-        CalculateScore(distanceRun.Value, 0);
+        CalculateScore(distanceRun.Value, totalCoins.Value);
 
         if (currentScore > topScore)
         {
@@ -115,6 +113,12 @@ public class ScoringManager : MonoBehaviour
     // calculates the score from the distance and the coins
     private void CalculateScore(int inDistance, int inCoins)
     {
-        currentScore = inDistance;
+        currentScore = inDistance + inCoins;
+    }
+
+
+    public void IncrementCoins()
+    {
+        totalCoins.Value++;
     }
 }

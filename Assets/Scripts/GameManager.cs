@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +15,12 @@ public enum GameDifficulty
     Fast,
     VeryFast,
     Stop
+}
+
+public enum GameState
+{
+    Menu,
+    Game
 }
 
 public class GameManager : MonoBehaviour
@@ -35,8 +43,22 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    [SerializeField]
+    private ReactiveProperty<GameState> state = new ReactiveProperty<GameState>(GameState.Menu);
+    public ReactiveProperty<GameState> State
+    {
+        get => state;
+        set
+        {
+            state = value;
+            onGameStateChange?.Invoke();
+        }
+    }
+
+    [Space(10)]
+
     // difficulty events and variables
-    public UnityEvent onStartGame, onDifficultyChange, onStopGame, onResetGame;
+    public UnityEvent onStartGame, onDifficultyChange, onStopGame, onResetGame, onGameStateChange;
 
     private GameDifficulty difficulty = GameDifficulty.Stop;
     public GameDifficulty Difficulty
@@ -51,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     // this controls the speed of all repeating objects in game
     public float GameSpeed { get; private set; }
+
 
 
 
@@ -117,6 +140,18 @@ public class GameManager : MonoBehaviour
     {
         Difficulty = (GameDifficulty)(((int) Difficulty + 1) % (int)GameDifficulty.Stop);
     }
+
+    [ContextMenu("Change Between Game States")]
+    public void ChangeState()
+    {
+        if (State.Value == GameState.Game)
+            State.Value = GameState.Menu;
+
+        else if (State.Value == GameState.Menu)
+            State.Value = GameState.Game;
+    }
+
+
 
     private void Update()
     {

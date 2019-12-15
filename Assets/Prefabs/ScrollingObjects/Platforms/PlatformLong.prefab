@@ -35,10 +35,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canSpawnObject: 1
   spawnZone: {fileID: 3274465826256042098}
-  obstacleTypes:
+  itemTypes:
   - prefab: {fileID: 5985027272660590134, guid: 61d8e3e78714c954d9ad46753fe1c76c,
       type: 3}
-    chanceToSpawn: 80
+    chanceToSpawn: 25
+  - prefab: {fileID: 8974005106075901900, guid: 77513098a7fbc1343abec193e8439346,
+      type: 3}
+    chanceToSpawn: 8
+  - prefab: {fileID: 8974005106075901900, guid: b0d72b42bd8b68445b4e89c9b14e3940,
+      type: 3}
+    chanceToSpawn: 8
+  - prefab: {fileID: 8974005106075901900, guid: d872d1e37bfd8cd4b835e19c22b50ce1,
+      type: 3}
+    chanceToSpawn: 9
+  - prefab: {fileID: 8974005106075901900, guid: 5f65707af3d01e34e9aafcb77a28a570,
+      type: 3}
+    chanceToSpawn: 5
+  - prefab: {fileID: 8974005106075901900, guid: 77856a8e5bd50a04fa64e9e7d00994e9,
+      type: 3}
+    chanceToSpawn: 5
 --- !u!1 &7243948189041272861
 GameObject:
   m_ObjectHideFlags: 0

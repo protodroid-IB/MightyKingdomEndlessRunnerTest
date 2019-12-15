@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class UpdateDistance : MonoBehaviour
 {
-    private ScoringManager scoringManager;
     private TextMeshProUGUI distanceUI;
 
     void Start()
