@@ -21,7 +21,7 @@ public class LaserGun : MonoBehaviour
         if(obstacle)
         {
             Debug.Log("Obstacle In Range!");
-            LaserBullet bullet = Instantiate(laserBullet, bulletSpawn.position, Quaternion.identity, bulletSpawn).GetComponent<LaserBullet>();
+            LaserBullet bullet = Instantiate(laserBullet, bulletSpawn.position, Quaternion.identity).GetComponent<LaserBullet>();
             bullet.Target = obstacle;
             onShoot?.Invoke();
         }
